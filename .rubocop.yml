@@ -1,0 +1,36 @@
+require:
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 3.2
+  NewCops: enable
+  SuggestExtensions: false
+  Exclude:
+    - "*/examples/**/*"
+    - "*/vendor/**/*"
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: always
+
+Layout/LineLength:
+  Max: 120
+  Exclude:
+    - "*/spec/**/*"
+
+Metrics/MethodLength:
+  Max: 15
+  Exclude:
+    - "*/spec/**/*"
+
+Metrics/ParameterLists:
+  CountKeywordArgs: false
+
+RSpec/ExampleLength:
+  Max: 15
+
+RSpec/MultipleExpectations:
+  Max: 3
