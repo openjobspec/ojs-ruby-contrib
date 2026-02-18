@@ -33,3 +33,9 @@ jobs:
       - name: Run linter
         working-directory: ${{ matrix.gem }}
         run: bundle exec rubocop
+
+      - name: Security audit
+        working-directory: ${{ matrix.gem }}
+        run: |
+          gem install bundler-audit
+          bundle-audit check --update
