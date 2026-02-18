@@ -3,7 +3,7 @@
 require "ojs"
 require "ojs/rails/configuration"
 require "ojs/rails/railtie" if defined?(::Rails::Railtie)
-require "ojs/rails/active_job_adapter"
+require "ojs/rails/active_job/adapter"
 require "ojs/rails/enqueue"
 require "ojs/rails/generator"
 
