@@ -16,7 +16,7 @@ jobs:
         gem: [ojs-rails, ojs-sinatra, ojs-sidekiq]
     name: "${{ matrix.gem }} / Ruby ${{ matrix.ruby }}"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - uses: ruby/setup-ruby@v1
         with:
