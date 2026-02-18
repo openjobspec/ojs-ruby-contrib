@@ -6,7 +6,7 @@ require "ojs/rails/railtie" if defined?(::Rails::Railtie)
 require "ojs/rails/active_job/adapter"
 require "ojs/rails/active_job/callbacks"
 require "ojs/rails/enqueue"
-require "ojs/rails/generator"
+require "ojs/rails/middleware"
 
 module OJS
   module Rails
