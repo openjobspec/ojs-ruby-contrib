@@ -1,0 +1,37 @@
+# OJS (Open Job Spec) environment configuration.
+#
+# Values here can be overridden by Rails credentials (config/credentials.yml.enc)
+# or the initializer (config/initializers/ojs.rb).
+
+development:
+  url: <%= ENV.fetch("OJS_URL", "http://localhost:8080") %>
+  default_queue: default
+  # queue_prefix: dev
+  # retry_policy:
+  #   max_attempts: 3
+  #   initial_interval: PT1S
+  #   backoff_coefficient: 2.0
+
+test:
+  url: http://localhost:8080
+  default_queue: default
+
+staging:
+  url: <%= ENV.fetch("OJS_URL", "http://ojs-staging:8080") %>
+  queue_prefix: staging
+  default_queue: default
+  retry_policy:
+    max_attempts: 5
+    initial_interval: PT1S
+    backoff_coefficient: 2.0
+
+production:
+  url: <%= ENV.fetch("OJS_URL", "http://ojs:8080") %>
+  queue_prefix: production
+  default_queue: default
+  timeout: 15
+  retry_policy:
+    max_attempts: 10
+    initial_interval: PT2S
+    backoff_coefficient: 2.0
+    max_interval: PT10M
