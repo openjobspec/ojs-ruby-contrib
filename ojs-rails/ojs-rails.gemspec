@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "ojs-rails"
-  spec.version       = "0.2.0"
+  spec.version       = "0.9.0"
   spec.authors       = ["OpenJobSpec Contributors"]
   spec.email         = ["contributors@openjobspec.org"]
 

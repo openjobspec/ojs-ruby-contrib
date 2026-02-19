@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "ojs-sinatra"
-  spec.version       = "0.1.0"
+  spec.version       = "0.9.0"
   spec.authors       = ["OpenJobSpec Contributors"]
   spec.email         = ["contributors@openjobspec.org"]
 

@@ -10,6 +10,18 @@ Add to your Gemfile:
 gem "ojs-sidekiq"
 ```
 
+## Configuration
+
+Configure the OJS client before enqueuing jobs:
+
+```ruby
+require "ojs-sidekiq"
+
+OJS::Sidekiq.configure do |config|
+  config.client = OJS::Client.new(ENV.fetch("OJS_URL", "http://localhost:8080"))
+end
+```
+
 ## Usage
 
 Replace `Sidekiq::Job` with `OJS::Sidekiq::Job`:
