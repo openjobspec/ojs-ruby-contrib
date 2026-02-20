@@ -78,3 +78,4 @@ RSpec.describe "OJS::Sidekiq error handling" do
     end
   end
 end
+
