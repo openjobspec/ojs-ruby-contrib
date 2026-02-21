@@ -138,3 +138,4 @@ RSpec.configure do |config|
     OJS::Rails.client = OJS::Client.new("http://localhost:8080")
   end
 end
+
