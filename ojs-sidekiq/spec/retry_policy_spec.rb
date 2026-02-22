@@ -79,3 +79,4 @@ RSpec.describe "OJS::Sidekiq::Job retry policy mapping" do
     end
   end
 end
+
