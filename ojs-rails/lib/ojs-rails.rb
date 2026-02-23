@@ -5,8 +5,10 @@ require "ojs/rails/configuration"
 require "ojs/rails/railtie" if defined?(::Rails::Railtie)
 require "ojs/rails/active_job/adapter"
 require "ojs/rails/active_job/callbacks"
+require "ojs/rails/active_job_adapter"
 require "ojs/rails/enqueue"
 require "ojs/rails/middleware"
+require "ojs/rails/worker"
 
 module OJS
   module Rails
