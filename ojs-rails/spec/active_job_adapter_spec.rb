@@ -198,3 +198,4 @@ RSpec.describe ActiveJob::QueueAdapters::OjsAdapter do
     end
   end
 end
+
