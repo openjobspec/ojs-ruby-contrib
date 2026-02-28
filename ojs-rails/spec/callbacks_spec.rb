@@ -84,3 +84,4 @@ RSpec.describe OJS::Rails::ActiveJob::Callbacks do
     end
   end
 end
+
