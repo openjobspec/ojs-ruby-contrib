@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.files        += Dir["lib/generators/**/*"]
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "ojs", "~> 0.1"
+  spec.add_dependency "ojs", "~> 0.2"
   spec.add_dependency "activejob", ">= 7.0"
   spec.add_dependency "railties", ">= 7.0"
 

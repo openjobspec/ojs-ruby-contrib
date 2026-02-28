@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.files         = Dir["lib/**/*", "README.md", "LICENSE"]
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "ojs", "~> 0.1"
+  spec.add_dependency "ojs", "~> 0.2"
   spec.add_dependency "sidekiq", ">= 7.0"
 
   spec.add_development_dependency "rspec", "~> 3.13"
