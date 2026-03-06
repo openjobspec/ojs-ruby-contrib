@@ -31,3 +31,4 @@ ruby worker.rb
 - `before_sidekiq.rb` — Original Sidekiq code (for reference)
 - `after_ojs.rb` — Same app using OJS via the Sidekiq adapter
 - `worker.rb` — OJS worker that processes jobs
+
