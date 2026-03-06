@@ -124,3 +124,4 @@ RSpec.describe OJS::Rails::Middleware do
     end
   end
 end
+
