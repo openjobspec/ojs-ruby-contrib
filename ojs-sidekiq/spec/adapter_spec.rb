@@ -95,3 +95,4 @@ RSpec.describe OJS::Sidekiq::Migration do
     expect(klass.ancestors).to include(OJS::Sidekiq::Job)
   end
 end
+
