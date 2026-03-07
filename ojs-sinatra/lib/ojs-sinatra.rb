@@ -9,3 +9,4 @@ module OJS
     class Error < StandardError; end
   end
 end
+
