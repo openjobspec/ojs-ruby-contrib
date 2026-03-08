@@ -33,3 +33,4 @@ curl -X POST http://localhost:3000/jobs \
 - `config/initializers/ojs.rb` — Configures OJS URL and sets the ActiveJob adapter
 - `app/jobs/email_job.rb` — ActiveJob class backed by OJS
 - `app/controllers/jobs_controller.rb` — API endpoint to trigger jobs
+
