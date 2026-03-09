@@ -36,5 +36,3 @@ rake lint:all    # Run all linters
 ## License
 
 Apache 2.0 — see [LICENSE](./LICENSE).
-
-
