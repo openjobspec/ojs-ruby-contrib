@@ -2,6 +2,8 @@
 
 source "https://rubygems.org"
 
+gem "ojs", path: "../../ojs-ruby-sdk"
+
 gemspec
 
 group :development, :test do

@@ -130,4 +130,74 @@ RSpec.describe OJS::Sinatra::Helpers do
       expect(body["args"]).to eq([])
     end
   end
+
+  describe "#enqueue_batch" do
+    it "delegates to client enqueue_batch" do
+      app_class.class_eval do
+        post "/enqueue-batch" do
+          jobs = [
+            { type: "email.send", args: ["a@b.com"] },
+            { type: "report.gen", args: [1], queue: "reports" }
+          ]
+          result = enqueue_batch(jobs)
+          [202, { "Content-Type" => "application/json" }, [result.to_json]]
+        end
+      end
+
+      post "/enqueue-batch"
+      body = JSON.parse(last_response.body)
+      expect(body.length).to eq(2)
+      expect(body[0]["type"]).to eq("email.send")
+      expect(body[1]["type"]).to eq("report.gen")
+      expect(body[1]["queue"]).to eq("reports")
+    end
+  end
+
+  describe "#cancel_job" do
+    it "delegates to client cancel" do
+      app_class.class_eval do
+        post "/cancel-job" do
+          result = cancel_job("job-123")
+          [200, { "Content-Type" => "application/json" }, [result.to_json]]
+        end
+      end
+
+      post "/cancel-job"
+      body = JSON.parse(last_response.body)
+      expect(body["id"]).to eq("job-123")
+      expect(body["state"]).to eq("cancelled")
+    end
+  end
+
+  describe "#get_job" do
+    it "delegates to client get_job" do
+      app_class.class_eval do
+        get "/job-status" do
+          result = get_job("job-456")
+          [200, { "Content-Type" => "application/json" }, [result.to_json]]
+        end
+      end
+
+      get "/job-status"
+      body = JSON.parse(last_response.body)
+      expect(body["id"]).to eq("job-456")
+      expect(body["state"]).to eq("active")
+      expect(body["type"]).to eq("test.job")
+    end
+  end
+
+  describe "#ojs_worker" do
+    it "returns nil when worker is not configured" do
+      app_class.class_eval do
+        get "/worker-check" do
+          worker = ojs_worker
+          [200, { "Content-Type" => "application/json" }, [{ present: !worker.nil? }.to_json]]
+        end
+      end
+
+      get "/worker-check"
+      body = JSON.parse(last_response.body)
+      expect(body["present"]).to be false
+    end
+  end
 end

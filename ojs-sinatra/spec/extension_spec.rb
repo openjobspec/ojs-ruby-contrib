@@ -5,6 +5,7 @@ require "spec_helper"
 RSpec.describe OJS::Sinatra::Extension do
   def app
     @app ||= Class.new(Sinatra::Base) do
+      set :host_authorization, permitted_hosts: [] if respond_to?(:host_authorization)
       register OJS::Sinatra::Extension
 
       post "/enqueue" do
@@ -38,6 +39,12 @@ RSpec.describe OJS::Sinatra::Extension do
   describe ".registered" do
     it "sets default ojs_url" do
       expect(app.ojs_url).to eq("http://localhost:8080")
+    end
+
+    it "sets default worker settings" do
+      expect(app.ojs_worker_enabled).to be false
+      expect(app.ojs_worker_queues).to eq(["default"])
+      expect(app.ojs_worker_concurrency).to eq(5)
     end
   end
 end

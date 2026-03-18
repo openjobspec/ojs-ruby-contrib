@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 require "bundler/setup"
+require "sinatra/base"
+require "rack/test"
+require "ojs-sinatra"
 
-# Stub OJS module for testing without the real gem
+# Override OJS::Client with a test stub after the real gem is loaded
 module OJS
   class Client
     attr_reader :url
@@ -14,12 +17,20 @@ module OJS
     def enqueue(type, args = nil, **options)
       { type: type, args: args }.merge(options)
     end
+
+    def enqueue_batch(jobs)
+      jobs.map { |job| { type: job[:type], args: job[:args], queue: job[:queue] || "default" } }
+    end
+
+    def cancel(job_id)
+      { id: job_id, state: "cancelled" }
+    end
+
+    def get_job(job_id)
+      { id: job_id, state: "active", type: "test.job" }
+    end
   end
 end
-
-require "sinatra/base"
-require "rack/test"
-require "ojs-sinatra"
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods
