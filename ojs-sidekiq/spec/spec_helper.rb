@@ -33,5 +33,7 @@ RSpec.configure do |config|
 
   config.before do
     OJS::Sidekiq.client = OJS::Client.new("http://localhost:8080")
+    OJS::Sidekiq.worker = nil
+    OJS::Sidekiq.event_bridge = nil
   end
 end
