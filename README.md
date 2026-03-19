@@ -1,4 +1,5 @@
 # Open Job Spec — Ruby Contrib
+[![Stability: beta](https://img.shields.io/badge/stability-beta-yellow.svg)](https://github.com/openjobspec/openjobspec/blob/main/STABILITY.md)
 
 Community framework integrations for the [OJS Ruby SDK](https://github.com/openjobspec/ojs-ruby-sdk).
 
